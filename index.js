@@ -2,6 +2,9 @@
 
 const Alexa = require('ask-sdk');
 const other = require('./other.js');
+var AWS = require("aws-sdk");
+var dynamo = new AWS.DynamoDB.DocumentClient();
+const TableName = "dinnerTable";
 
 const LaunchRequestHandler = {
   canHandle(handlerInput) {
@@ -18,21 +21,42 @@ const LaunchRequestHandler = {
 };
 
 // 自分で定義したインテント
-const sampleIntentHandler = {
+const getPerDataIntentHandler = {
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-      && handlerInput.requestEnvelope.request.intent.name === 'sampleIntent';
+      && handlerInput.requestEnvelope.request.intent.name === 'getPerDataIntent';
   },
   handle(handlerInput) {
-    var msg = "自分で定義したインテントの時に呼ばれます";
+    const request = handlerInput.requestEnvelope.request;
+    if(request.intent.slots.family.resolutions.resolutionsPerAuthority[0].values){
+      var familyNameValue = request.intent.slots.family.resolutions.resolutionsPerAuthority[0].values[0].value.name;
+      var familyNameId = request.intent.slots.family.resolutions.resolutionsPerAuthority[0].values[0].value.id;
+    }
+    var params = getPerDataParams(familyNameId);
 
-    return handlerInput.responseBuilder
-      .speak(msg)
-      .reprompt(msg)
-      .withSimpleCard('カードを表示します', msg)
-      .getResponse();
+    return dynamo.get(params).promise().then( data => {
+      console.log(data);
+      if(data.Item && data.Item.isNeed){
+        var msg = `${familyNameValue}さんは今晩、ご飯いるそうです。`;
+      }else{
+        var msg = `${familyNameValue}さんは今晩、ご飯いらないそうです。`;
+      }
+      return handlerInput.responseBuilder.speak(msg).getResponse();
+    });
+
   }
 };
+
+function getPerDataParams(familyNameId){
+  var params = {
+    TableName : TableName,
+    Key: {
+      user: familyNameId
+    }
+  };
+  return params;
+}
+
 
 //exports.handler = Alexa.SkillBuilders.custom()
 exports.handler = Alexa.SkillBuilders.standard()
@@ -40,6 +64,6 @@ exports.handler = Alexa.SkillBuilders.standard()
     LaunchRequestHandler,
     other.HelpIntentHandler,
     other.SessionEndedRequestHandler,
-    sampleIntentHandler)
-  .addErrorHandlers(other.ErrorHandler)
+    getPerDataIntentHandler)
+  //.addErrorHandlers(other.ErrorHandler)
   .lambda();

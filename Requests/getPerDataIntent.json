@@ -1,0 +1,97 @@
+{
+  "version": "1.0",
+  "session": {
+    "new": true,
+    "sessionId": "amzn1.echo-api.session.c64b9c65-267b-4a32-92ac-632636e60ab6",
+    "application": {
+      "applicationId": "amzn1.ask.skill.47665e34-bb9d-464d-9bda-d1814a079c6f"
+    },
+    "user": {
+      "userId": "amzn1.ask.account.AFPW25KHPJETEGI3YEQ3MCKTROC4DZ57IW5AZGLOWQZRDLVMYB3JGO2HUWPLHZHQLG5ZIPYC6B2YMDZDZSZWAKYABER6LW5E6JA37QPEN3OX6IWBOYQBTPRPGGOUJH62YZDOGKKKH77PHM34RKQCOUTGURGZZZ2WI3ADLDDH4TC2B56WXJ43FHW77IMOI5JBCC4TYAUU2IRTFEQ"
+    }
+  },
+  "context": {
+    "AudioPlayer": {
+      "playerActivity": "IDLE"
+    },
+    "Display": {},
+    "System": {
+      "application": {
+        "applicationId": "amzn1.ask.skill.47665e34-bb9d-464d-9bda-d1814a079c6f"
+      },
+      "user": {
+        "userId": "amzn1.ask.account.AFPW25KHPJETEGI3YEQ3MCKTROC4DZ57IW5AZGLOWQZRDLVMYB3JGO2HUWPLHZHQLG5ZIPYC6B2YMDZDZSZWAKYABER6LW5E6JA37QPEN3OX6IWBOYQBTPRPGGOUJH62YZDOGKKKH77PHM34RKQCOUTGURGZZZ2WI3ADLDDH4TC2B56WXJ43FHW77IMOI5JBCC4TYAUU2IRTFEQ"
+      },
+      "device": {
+        "deviceId": "amzn1.ask.device.AFPN3CS4PIZCFG7Y42VLS2MRJHT2H3GRHT4WW63MLT2OCI3KNA2TNJVHTVMPUEU3LIJ2VFCASFKHDF44TAQA44CT6FH4ENW44GUM3CH36BQBIXHCJJQEXAB5IXCPSYLVF7KXI2LNGSDBJNWVER7STFESMX7Y4QOVDLDDKCCQ77RBZRY43XJU4",
+        "supportedInterfaces": {
+          "AudioPlayer": {},
+          "Display": {
+            "templateVersion": "1.0",
+            "markupVersion": "1.0"
+          }
+        }
+      },
+      "apiEndpoint": "https://api.amazonalexa.com",
+      "apiAccessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjEifQ.eyJhdWQiOiJodHRwczovL2FwaS5hbWF6b25hbGV4YS5jb20iLCJpc3MiOiJBbGV4YVNraWxsS2l0Iiwic3ViIjoiYW16bjEuYXNrLnNraWxsLjQ3NjY1ZTM0LWJiOWQtNDY0ZC05YmRhLWQxODE0YTA3OWM2ZiIsImV4cCI6MTUyNjM4OTc1MSwiaWF0IjoxNTI2Mzg2MTUxLCJuYmYiOjE1MjYzODYxNTEsInByaXZhdGVDbGFpbXMiOnsiY29uc2VudFRva2VuIjpudWxsLCJkZXZpY2VJZCI6ImFtem4xLmFzay5kZXZpY2UuQUZQTjNDUzRQSVpDRkc3WTQyVkxTMk1SSkhUMkgzR1JIVDRXVzYzTUxUMk9DSTNLTkEyVE5KVkhUVk1QVUVVM0xJSjJWRkNBU0ZLSERGNDRUQVFBNDRDVDZGSDRFTlc0NEdVTTNDSDM2QlFCSVhIQ0pKUUVYQUI1SVhDUFNZTFZGN0tYSTJMTkdTREJKTldWRVI3U1RGRVNNWDdZNFFPVkRMRERLQ0NRNzdSQlpSWTQzWEpVNCIsInVzZXJJZCI6ImFtem4xLmFzay5hY2NvdW50LkFGUFcyNUtIUEpFVEVHSTNZRVEzTUNLVFJPQzREWjU3SVc1QVpHTE9XUVpSRExWTVlCM0pHTzJIVVdQTEhaSFFMRzVaSVBZQzZCMllNRFpEWlNaV0FLWUFCRVI2TFc1RTZKQTM3UVBFTjNPWDZJV0JPWVFCVFBSUEdHT1VKSDYyWVpET0dLS0tINzdQSE0zNFJLUUNPVVRHVVJHWlpaMldJM0FETERESDRUQzJCNTZXWEo0M0ZIVzc3SU1PSTVKQkNDNFRZQVVVMklSVEZFUSJ9fQ.gGYZqZmf0gQfVXrQ6S2M1KsefSQL-lQ6EZnwrG7W77DE-geY0oAEprrcO-Ndu23wGusKjgA0IhCUHOFoYMnDFkrhvb9-uiXVy453zGK94PK7CmjgRNGa6kgavyeFQ4mwKlAM7BiHSlqYMUmLIs9XP0TavqvIRlcd5HcB_K-yQUOopipJmGxzQLrQ66SyzpRq1sZi-SbkKi06I62QKWmjMhE3ezG6qXmiCyp7uD1A19z12LA05mgcE0eQR2XaPcCJJwLwwkK_0xm06duFhIE1CdDvt-TPgdqZ-R00Q0jZiATZqw8hme5FyINP0tzrdq-wYdyyWtt4pa4KgW0FO7OaXQ"
+    }
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "amzn1.echo-api.request.6b9c4b60-bbea-4a37-a297-166e3981731f",
+    "timestamp": "2018-05-15T12:09:11Z",
+    "locale": "ja-JP",
+    "intent": {
+      "name": "getPerDataIntent",
+      "confirmationStatus": "NONE",
+      "slots": {
+        "meal": {
+          "name": "meal",
+          "value": "晩飯",
+          "resolutions": {
+            "resolutionsPerAuthority": [
+              {
+                "authority": "amzn1.er-authority.echo-sdk.amzn1.ask.skill.47665e34-bb9d-464d-9bda-d1814a079c6f.meal",
+                "status": {
+                  "code": "ER_SUCCESS_MATCH"
+                },
+                "values": [
+                  {
+                    "value": {
+                      "name": "晩御飯",
+                      "id": "3b655c022441baa09fb9385f1d41ec01"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "confirmationStatus": "NONE"
+        },
+        "family": {
+          "name": "family",
+          "value": "たけ",
+          "resolutions": {
+            "resolutionsPerAuthority": [
+              {
+                "authority": "amzn1.er-authority.echo-sdk.amzn1.ask.skill.47665e34-bb9d-464d-9bda-d1814a079c6f.family",
+                "status": {
+                  "code": "ER_SUCCESS_MATCH"
+                },
+                "values": [
+                  {
+                    "value": {
+                      "name": "たけゆき",
+                      "id": "takeyuki"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "confirmationStatus": "NONE"
+        }
+      }
+    }
+  }
+}
