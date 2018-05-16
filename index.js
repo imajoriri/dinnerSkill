@@ -3,6 +3,7 @@
 const Alexa = require('ask-sdk');
 const other = require('./other.js');
 var AWS = require("aws-sdk");
+const askAuxiliary = require('ask-auxiliary');
 var dynamo = new AWS.DynamoDB.DocumentClient();
 const TableName = "dinnerTable";
 
@@ -75,6 +76,27 @@ const setTruePerDataIntentHandler = {
   }
 };
 
+// 家族全員の情報を流す
+const getAllDataIntentHandler = {
+  canHandle(handlerInput) {
+    return askAuxiliary.isIntent(handlerInput, "getAllDataIntent");
+  },
+  handle(handlerInput) {
+    return dynamo.scan({TableName: TableName}).promise().then( (data) => {
+      var allMembers = data.Items;
+      var hungryMembersName = []; // 晩飯いる人。isNeed: false
+      for(var i in allMembers){
+        if(allMembers[i].isNeed){
+          hungryMembersName.push(allMembers[i].name);
+        }
+      }
+
+      var msg = "今晩ご飯がいらない人は、" + hungryMembersName.join("、") + "です"
+      return handlerInput.responseBuilder.speak(msg).getResponse();
+    });
+  }
+};
+
 
 function getPerDataParams(familyNameId){
   var params = {
@@ -110,6 +132,7 @@ exports.handler = Alexa.SkillBuilders.standard()
     other.HelpIntentHandler,
     other.SessionEndedRequestHandler,
     getPerDataIntentHandler,
-    setTruePerDataIntentHandler)
+    setTruePerDataIntentHandler,
+    getAllDataIntentHandler)
   //.addErrorHandlers(other.ErrorHandler)
   .lambda();

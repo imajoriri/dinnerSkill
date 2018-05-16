@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ask-auxiliary": "^1.0.3",
     "ask-sdk": "^2.0.4"
   }
 }
