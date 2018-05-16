@@ -55,10 +55,10 @@ const getPerDataIntentHandler = {
 };
 
 // 指定した人が晩御飯いるをセットする
-const setTruePerDataIntentHandler = {
+const setPerDataIntentHandler = {
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-      && handlerInput.requestEnvelope.request.intent.name === 'setTruePerDataIntent';
+      && handlerInput.requestEnvelope.request.intent.name === 'setPerDataIntent';
   },
   handle(handlerInput) {
     const request = handlerInput.requestEnvelope.request;
@@ -66,10 +66,17 @@ const setTruePerDataIntentHandler = {
       var familyNameValue = request.intent.slots.family.resolutions.resolutionsPerAuthority[0].values[0].value.name;
       var familyNameId = request.intent.slots.family.resolutions.resolutionsPerAuthority[0].values[0].value.id;
     }
+    var boolId = askAuxiliary.getSlotId(handlerInput, "bool");
 
-    var params = setTrueOrFalseDataParams(true, familyNameId);
-    return dynamo.update(params).promise().then( (data) => {
+    if(boolId === "true"){
+      var params = setTrueOrFalseDataParams(true, familyNameId);
       var msg = `${familyNameValue}さんは今晩晩飯いるで登録しました。`;
+    }else{
+      var params = setTrueOrFalseDataParams(false, familyNameId);
+      var msg = `${familyNameValue}さんは今晩晩飯いらないで登録しました。`;
+    }
+
+    return dynamo.update(params).promise().then( (data) => {
       return handlerInput.responseBuilder.speak(msg).getResponse();
     });
 
@@ -132,7 +139,7 @@ exports.handler = Alexa.SkillBuilders.standard()
     other.HelpIntentHandler,
     other.SessionEndedRequestHandler,
     getPerDataIntentHandler,
-    setTruePerDataIntentHandler,
+    setPerDataIntentHandler,
     getAllDataIntentHandler)
   //.addErrorHandlers(other.ErrorHandler)
   .lambda();

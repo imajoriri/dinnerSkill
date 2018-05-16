@@ -44,7 +44,7 @@ AskAuxiliary.prototype = {
   },
 
   // id取得
-  getSlotsId: function(handlerInput, key){
+  getSlotId: function(handlerInput, key){
     var request = handlerInput.requestEnvelope.request;
     var slots = request.intent.slots[key];
     if(slots === undefined){
